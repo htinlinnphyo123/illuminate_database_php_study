@@ -43,7 +43,7 @@
 
         public function insert($query) {
             try{
-                return Beer::create($query);
+                Beer::create();
             }catch(PDOException $err){
                 var_dump($err);
                 // return $err->getMessage();
