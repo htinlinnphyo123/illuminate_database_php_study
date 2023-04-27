@@ -2,10 +2,10 @@
 
     require_once __DIR__ . "/vendor/autoload.php";
     
-    use App\database\DB;
-    $database = new DB();
-    $beers = $database->show('beers');
-
+    use App\Controller\BeerController;
+    $beerDb = new BeerController();
+    $beers = $beerDb->show();
+    
 ?>
 
 <!DOCTYPE html>

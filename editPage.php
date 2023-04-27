@@ -1,13 +1,19 @@
 <?php
 
     require_once __DIR__ . "/vendor/autoload.php";
-    use App\database\DB;
-    $database = new DB;
-
     $id = $_GET["id"];
 
-    $beer = $database->showEach("beers",$id);
-    $countries = $database->show("countries");
+    use App\Controller\BeerController;
+    use App\Controller\CountryController;
+
+    $beerDB = new BeerController();
+    $countryDB = new CountryController();
+
+    $beer = $beerDB->showEach($id);
+    $countries = $countryDB->show();
+
+
+
 ?>
 
 <!DOCTYPE html>

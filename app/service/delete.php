@@ -1,16 +1,15 @@
 <?php
 
     require_once "../../vendor/autoload.php";
-    use App\database\DB;
+    use App\Controller\BeerController;
 
-    $database = new DB();
-    
     $request_id = $_GET['id'];
 
-    $delete = $database->delete("beers",$request_id);
-
-    if($delete==1) {
-        header('location: ../../index.php');
+    $controller = new BeerController();
+    
+    if($controller->destroy($request_id)) {
+        header("location: ../../index.php");
     }
+    
 
 ?>
